@@ -7,6 +7,9 @@ import seaborn as sns
 from scipy.stats import pearsonr
 
 
+
+### CHECK FOR INFORMATION LEAK ISSUE - see file INFORMATION LEAK ISSUE.txt ###
+
 # SE_main_v2: Since v1: Here changed how categorical variables are relabelled in the course of dummy coding
 
 # write up: beispiel für einfache auswertung und ableitung ovn erkenntnissen: https://neptune.ai/blog/how-to-implement-customer-churn-prediction

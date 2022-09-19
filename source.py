@@ -6,35 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import pearsonr
 
-### CHECK FOR INFORMATION LEAK ISSUE - see file INFORMATION LEAK ISSUE.txt ###
-
-# SE_main_v2: Since v1: Here changed how categorical variables are relabelled in the course of dummy coding
-
-# write up: beispiel für einfache auswertung und ableitung ovn erkenntnissen: https://neptune.ai/blog/how-to-implement-customer-churn-prediction
-
-# narrative: nicht domäne extrem in Vordergrund stellen; eher muss klarwerden: geht darum wie man daten vorbereitet und visualisiert, domänenunabhängig
-
-# before publishing results make REALLY sure that they are correctly computed AND plotted! don't trust the plots on their own when checking!
-
-# Loading relevant variables from data into dataframe, while replacing missing values with NaN"
-# initially was replacing relevant values here with na_values argument, but then realized can be misleading,
-# need to investigate for each clm: what do missing value expressions indicate, how can they be replaced
-
-# 26.03.: It seems that I actually have to set this whole thing up differently: Just comparing population means. If
-# I do that, and should use two-sample t-tests, I should point out in narrative that this is also used in A/B testing!
-
-# No missing value imputation: Um Ergebnissverzerrung auszuschließen; dafür den Minimum-Parameter in der Correlation Table Erzwugug verwendet (?)
-
-# GitHub repository 'housekeeping': wie gliedern/speichern professionalle Data Scientists/Programmierer ihren Code? Sicher nicht alles in einem File wie hier oder? 
-
-# important: it seem that what I labelled dummy variable/encoding is actually in some cases actually dummy encoding, but in
-# other cases 'ordinal encoding'. Make sure to get the terminology right before putting this online! (if in doubt, avoid terminology)
-
-# hervorheben in Beschreibung: die ausgeprägte "breite" (?) des Datensatzes, Feature-Anzahl
-# SQL: ganz am Ende nachträglich: in SQL Datenbank laden und von da direkt abfragen, damit ich sagen kann: SQL-Datenbank Projekt
 
 se_red = pd.read_csv(
-    filepath_or_buffer = "C:\\Users\\marc.feldmann\\Documents\\data_science_local\\SE\\se_pooled.csv",
+    filepath_or_buffer = "data/se_pooled.csv",
     delimiter = ",",
     usecols = ["id", "ssyjahr", "dem01_h", "dem02_h", "dem03_v21", "dem05", "dem09", "dem11a_h", "par03_v21", "par04_v21", "par05_h", "par06_h", "par07_h", "par08_h", "par09", "par10", "stu01a_h", "stu02_h", "stu03_h", "stu04", "stu05", "stu10_h", "stu11b", "stu11c_v20", "stu11d", "stu11e", "stu11f", "stu11g", "stu11h_v21", "stu12_v21", "stu13_h", "stu16a_h", "stu16b_h", "ped01_v21", "ped03", "fin01a", "fin01b", "fin01c", "fin01d", "fin01e", "fin01f_h", "fin01g", "fin01h", "fin01j", "fin01o", "fin02a_h", "fin02b_h", "fin02c_h", "fin02d_h", "fin02e_h", "fin02f_h", "fin02g_h", "fin02h_h", "fin02i_h", "fin03a_h", "fin03b_h", "fin03c_h", "fin03d_h", "fin03e_h", "fin03f_h", "fin03g_h", "fin03h_h", "fin03i_h", "fin04a", "fin04b", "fin04c", "fin04d_v21", "fin04e_v21", "fin04f_v21", "fin04i", "baf01_h", "baf05a", "baf05b", "baf05c", "baf05e", "baf05f_v20", "baf05g", "baf05h_v21", "baf05i_v21", "tim02a_v21", "tim02b_v21", "tim02c_v21", "tim02d_v21", "tim02e_v21", "tim02f_v21", "tim02g_v21", "tim03a_v21", "tim03b_v21", "tim03c_v21", "tim03d_v21", "tim03e_v21", "tim03f_v21", "tim03g_v21", "job02_h", "job03a_v21", "job03b_v21", "job03g_v21", "job03n_v21", "job05a", "job05b", "job05c", "job05d", "job05e", "job05f", "job05g", "job05h", "abr01_h", "abr02a_v21", "abr02b_v21", "abr02d_v21", "abr03a_v21", "abr03b_v21", "abr03d_v21", "abr08a_v21", "abr08b_v21", "abr08c_v21", "abr08d_v21", "abr08e_v21", "abr08f_v21", "abr08g_v21", "abr08h_v21", "abr08i_v21", "abr09a_v21", "abr09b_v21", "abr09c_v21", "abr09d_v21", "abr09e_v21", "abr09f_v21", "abr09g_v21", "abr09h_v21", "abr09i_v21", "abr11_h", "abr12_h", "abr13a_v21", "abr13b_v21", "abr13c_v21", "abr13d_v21", "abr13e_v21", "abr13f_v21", "lan01_v21", "liv01_v21", "adv01a_v21", "adv01b_v21", "adv01c_v21", "adv01d_v21", "adv01e_v21", "adv01g_v21", "adv01i_v21", "adv01j_v21", "adv01k_v21", "adv01l_v21", "adv01m_v21", "adv01n_v21", "adv01o_v21", "adv01p_v21", "adv02_v21"],
 #    na_values = ["verweigert", "interviewabbruch", "unbekannter fehlender Wert", "nicht bestimmbar", "keine Angabe (Antwortkategorie)", "keine Angabe", "weiß nicht", "nicht genannt", "ssy-spezifisch fehlend", "splitbedingt fehlend", "filterbedingt fehlend", "designbedingt fehlend", "kohortenbedingt fehlend"],
@@ -60,9 +34,6 @@ print(se_red_17[se_red_17.duplicated()].shape)
 # c) aggregate and/or rename feature values to make better understandable in later output
 # d) make sure that existing nominal and ordinal categorical variables are coded numerically (e.g., Likert-scale variables such as "Beratungsbedarf")
 # e) declare column data type
-## in docu: give rationale why I was not simply replacing all relevant values with read_csv parameter (as I did originally:)
-## because different types of 'missing value', need to be inspected individually; also: same type can mean different things
-## in different features (insb. "splitbedingt fehlend"; auch: e.g. "unbestimmbar" in Geschlecht oder e.g. Schulabschluss des Vaters)  
 
 ## Geschlecht (dem01_h)
 round(se_red_17["dem01_h"].value_counts(normalize=True, dropna=False), 3)
@@ -904,7 +875,7 @@ se_red_17.rename(columns={"adv01a_v21": "DUM_adv01a_v21", "adv01b_v21": "DUM_adv
 
 # CREATE FEATURES
 ## "First Generation Student" (dem99_c): infer from par05_h and par06_h
-
+## to be able to discriminate between first generation and non-first generation students
 
 ## create new column and set all cells to "1" to denote First Generation Student
 se_red_17.insert(8, "dem99_c", 1)
@@ -985,13 +956,13 @@ se_red_17_dum = se_red_17_dum.reindex(columns=["index", "id", "dem99_c", "DUM_de
 
 
 
-# ------- THIS IS WHERE ACTUAL ANALYSIS STARTS ------- #
+# ------- START OF COMPARATIVE ANALYSIS AND VISUALIZATION ------- #
 ## "getting to know" the data: revisit research question, then investigate each variable"s statistics and take notes
 ## RQ: How do first generation and non-first generation students' study conditions differ?
 
 ## correlation table to preselect variables correlated to dem99_c for visualization
 # se_red_17_corr = round(se_red_17_dum.corr(), 3)
-# se_red_17_corr.to_csv(r"C:\Users\marc.feldmann\Dropbox\Dissertation_MFeldmann\se_red_17_corr.csv")
+# se_red_17_corr.to_csv(r"data/se_red_17_corr.csv")
 
 ## corr table with asterisks indicating sign:
 ## rho = se_red_17.corr()

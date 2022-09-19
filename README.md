@@ -1,5 +1,5 @@
 # FirstGenAcademics
-This project compares the study conditions of German students from non-academic and academic families. It uses data from the five 'Sozialerhebung' surveys between 2013 and 2016.
+This project compares the study conditions of German students from non-academic and academic families. It uses data from the five 'Sozialerhebung' surveys between 2013 and 2016. It is focus on data wrangling and cleaning to preprocess it for visual analysis.
 
 Some impressions from the project:
 

@@ -3,7 +3,7 @@ This project compares the study conditions of German students from non-academic 
 
 Source: RDC of the Federal Statistical Office and Statistical Offices of the Federal States, DOI: https://doi.org/10.21249/DZHW:ssypool:1.0.1, own calculations.
 
-Some unpolished results from the project:
+Some unpolished result visualizations from the project:
 
 ![Fig_FS_abr08a_v21](https://user-images.githubusercontent.com/97337456/191020575-2bb9499b-ed40-4bbd-b33c-c190e4b71e13.png)
 

@@ -5,8 +5,4 @@ Source: RDC of the Federal Statistical Office and Statistical Offices of the Fed
 
 Some unpolished result visualizations from the project:
 
-![Fig_FS_abr08a_v21](https://user-images.githubusercontent.com/97337456/191020575-2bb9499b-ed40-4bbd-b33c-c190e4b71e13.png)
-
-![Fig_SB_par07_h](https://user-images.githubusercontent.com/97337456/191020721-457f9adf-6322-46ef-b5a6-954e36eb42a0.png)
-
-![Fig_SC_tim03z](https://user-images.githubusercontent.com/97337456/191020781-3d4fab0e-1a56-4c1a-a6f6-18641e52e60d.png)
+<iframe title="visualanalysis" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=844973de-a517-4f30-82d8-e669863f8816&autoAuth=true&ctid=fd0fb888-81d0-4386-9462-8a094cc4592e" frameborder="0" allowFullScreen="true"></iframe>

@@ -1,6 +1,5 @@
 archive/
 data/
 docs/
-results/*.png
-results/*.md
-*.pbix
+results/*
+!results/.pdf 

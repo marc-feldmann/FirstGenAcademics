@@ -2,4 +2,4 @@ archive/
 data/
 docs/
 results/*
-!results/.pdf 
+!results/*.pdf 

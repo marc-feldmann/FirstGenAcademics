@@ -5,4 +5,4 @@ See results/report.pdf.
 
 Preview:
 
-![image](https://user-images.githubusercontent.com/97337456/194363923-1799ec43-a78e-4100-af64-4db76370a201.png)
+![image](https://user-images.githubusercontent.com/97337456/194753899-c6ebbbf6-7902-4229-aa10-4800f198d086.png)

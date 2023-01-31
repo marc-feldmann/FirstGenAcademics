@@ -6,3 +6,6 @@ See results/report.pdf.
 Preview:
 
 ![image](https://user-images.githubusercontent.com/97337456/194753899-c6ebbbf6-7902-4229-aa10-4800f198d086.png)
+
+
+Apolinarski, B., Becker, K., Borchert, L., Bornkessel, P., Brandt, T., Fabian, G., Heißenberg, S., Isserstedt, W., Kandulla, M., Leszczensky, M., Link, J., Middendorff, E., Netz, N., Poskowsky, J., Schnitzer, K., Weber, S., Wolter, A., Schreiber, J., Schröder, M., ... & Kahle, I. (2022). Pooled Data Set 13th - 21st Social Survey 1991 - 2016. Data Collection: 1991-2016. Version: 2.0.0. Data Package Access Way: CUF: Download. Hanover: FDZ-DZHW. Data Curation: Middendorff, E. & Wallis, M. https://doi.org/10.21249/DZHW:ssypool:2.0.0
